@@ -1,5 +1,5 @@
 # SC126-running-CPM-at-36864-MHz
-Code to change register settings to double CPU clock speed and alter UART0 and UART1 config.
+Code to change register settings to double CPU clock speed and alter WAIT states and UART0 and UART1 config.
 
 Assmbled with the Z180 assembler and linker from the Hightech C toolchain for CP/M
 
