@@ -1,4 +1,4 @@
-;    FAST - Set CPU Speed to 36.964Mhz. Change UART setting for 115200 baud.
+;    FAST - Set CPU Speed to 36.964Mhz. Changes CPU settings, WAIT states and UART settings for 115200 baud.
 
 stksiz          EQU             40h             ; Working stack size
 restart         EQU             0000h           ; CP/M restart vector
