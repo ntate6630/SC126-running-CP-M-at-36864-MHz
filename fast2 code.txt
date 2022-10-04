@@ -67,7 +67,7 @@ prtstr:         ; Print a string terminated with a dollar
                 ret
 
 setspeed:       ; Change CPU settings for faster speed
-                ld              a,99h           ; MEM/DMA = 2/WS I/O = 2W/S
+                ld              a,44h           ; MEM/DMA = 2/WS I/O = 2W/S
                 out0            (DCNTL),a       ; DMA WAIT Control register
                 ld              a,0BFh          ; Set multiplier x2
                 out0            (CMR),a         ; Clock Multiplier register
