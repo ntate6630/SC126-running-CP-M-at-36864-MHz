@@ -4,7 +4,7 @@ stksiz          EQU             40h             ; Working stack size
 restart         EQU             0000h           ; CP/M restart vector
 bdos            EQU             0005h           ; BDOS invocation vector
 iobyte          EQU             0003h           ; IOBYTE address
-stack           EQU             0h              ; Stack top
+stack           EQU             01C4          	; Stack top
 CCR             EQU             0DFh            ; CPU Control Register
 CMR             EQU             0DEh            ; Clock Multiplier Register
 DCNTL           EQU             0F2h            ; DMA/Wait Control Register
