@@ -75,34 +75,32 @@ setspeed:       ; Change CPU settings for faster speed
                 out0            (CCR),a         ; CPU Control Register
 
 setbaudrates:   ; Set new values for 115200 baud on UART 0
-                in0             a,(0C2h)
-                set             0,a
+                in0             a,(0C2h)	;ASCI Channel CTRL Reg B
+                set             0,a		; Set divide ratio = /2
                 res             1,a
                 res             2,a
-                out0            (0C2h),a
-                in0             a,(0D2h)
-                res             3,a
-                res             4,a
-                out0            (0D2h),a
-                res             4,a
-                out0            (0D2h),a
+                out0            (0C2h),a	; Update setting
+                in0             a,(0D2h)	; ASCI Extension CTRL Reg
+                res             3,a		; BRG0 Mode = 0
+                res             4,a		; X1 bit = Baud rate gen
+                out0            (0D2h),a	; Update setting
 
                 ; Set new values for 115200 baud on UART 1
-                in0             a,(0C3h)
-                set             0,a
+                in0             a,(0C3h)	; ASCI Channel CTRL Reg B
+                set             0,a		; Set divide ratio = /2
                 res             1,a
                 res             2,a
-                out0            (0C3h),a
-                in0             a,(0D3h)
-                res             3,a
-                res             4,a
-                out             (0D3h),a
+                out0            (0C3h),a	; Update setting
+                in0             a,(0D3h)	; ASCI Extension CTRL Reg
+                res             3,a		; BRG1 Mode = 0
+                res             4,a		; X1 bit = Baud rate gen
+                out             (0D3h),a	; Update setting
                 ret
 
 ; Storage section
 
 cbftbl:         defw          0              ; Addr of CBIOS function table
 stksav:         defw          0              ; Stack pointer saved at start
-msghello:       defm            'FAST   36864 MHz$'
+msghello:       defm            'FAST   36864 MHz,  1 MEM W/S,  0 IO W/S $'
 
                 END
