@@ -19,7 +19,7 @@ Creates an executable file
 
 C:FAST.COM
 
-Type FAST.COM to run the utility. 
+Type FAST to run the utility. 
 
 Youtube video shows demonstration of before and after running the overclock utility.
 
