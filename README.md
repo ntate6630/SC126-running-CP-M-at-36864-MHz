@@ -21,7 +21,7 @@ C:FAST.COM
 
 Type FAST to run the utility. 
 
-Youtube video shows demonstration of before and after running the overclock utility.
+Youtube video shows demonstration of before and after running the overclock utility. (NOTE this demo video is now old and does not reflect the latest updates.)
 
 https://www.youtube.com/watch?v=JDSr2Kb83AI
 
