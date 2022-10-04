@@ -25,4 +25,4 @@ Youtube video shows demonstration of before and after running the overclock util
 
 https://www.youtube.com/watch?v=JDSr2Kb83AI
 
-DISCLAIMER: This code is experimental and alters settings that overclock the Z180 CPU, changes WAIT timings and changes UART settings and I can not guarantee the system will run reliably on every setup. As it is I still get the occasional crash or "CP/M panic!" from time to time. Hopefully in time I will iron out these issues.
+DISCLAIMER: This code is experimental and alters settings that overclock the Z180 CPU, changes WAIT timings and changes UART settings and I can not guarantee the system will run reliably on every setup.
