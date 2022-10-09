@@ -1,0 +1,106 @@
+;    SLOW - Set CPU Speed to 18.432Mhz. Change UART setting for 115200 baud.
+
+stksiz          EQU             40h             ; Working stack size
+stack           EQU             01C4h           ; Stack top
+restart         EQU             0000h           ; CP/M restart vector
+bdos            EQU             0005h           ; BDOS invocation vector
+iobyte          EQU             0003h           ; IOBYTE address
+CCR             EQU             0DFh            ; CPU Control Register
+CMR             EQU             0DEh            ; Clock Multiplier Register
+DCNTL           EQU             0F2h            ; DMA/Wait Control Register
+ASTC0L          EQU             0DAh            ; ASCI Time Const Register L
+ASTC0H          EQU             0DBh            ; ASCI Time Const Register H
+ASTC1L          EQU             0DCh            ; ASCI Time Const Register L
+ASTC1H          EQU             0DDh            ; ASCI Time Const Register H
+CSIO            EQU             0CAh            ; CSI/O Register
+
+                ORG             0100h
+main:
+                ld              (stksav),sp     ; Save stack
+                ld              sp,(stack)      ; Set new stack
+                call            init
+                jr              nz,exit         ; Abort if init fails
+                ld              de,msghello     ; Display start message
+                call            prtstr          ; Print it
+                ld              a,0Ah           ; Carriage return
+                call            prtchar         ; Print it
+                ld              a,0Ah           ; Carriage return
+                call            prtchar         ; Print it
+                di
+                call            setspeed        ; Change CPU parameters
+                ei
+exit:           ; Clean up and return to the command processor
+                ld              sp,(stksav)     ; Restore stack
+                ret                             ; Return to CP/M
+
+init:
+                ld              hl,(restart+1)
+
+                ld              de,-3
+                add             hl,de
+                ld              (cbftbl),hl
+
+                xor             a
+                ret
+
+prtchar:        ; Print a character in register 'A'
+                push            bc
+                push            de
+                push            hl
+                ld              e,a
+                ld              c,02h           ; BDOS function to output a
+                call            bdos            ; charcter
+                pop             hl
+                pop             de
+                pop             bc
+                ret
+
+prtstr:         ; Print a string terminated with a dollar
+                push            bc
+                push            de
+                push            hl
+                ld              c,09h           ; BDOS function to output a
+                call            bdos            ; string
+                pop             hl
+                pop             de
+                pop             bc
+               	ret
+
+setspeed:       ;Set values for ASCI Time Constant registers
+                ld              a,00h
+                out0            (ASTC0L),a
+                ld              a,00h
+                out0            (ASTC0H),a
+                ld              a,00h
+                out0            (ASTC1L),a
+                ld              a,00h
+                out0            (ASTC1H),a
+
+                ; Set values for 115200 baud on UART 0
+                ld              a,00h
+                out0            (0C2h),a
+                ld              a,64h
+                out0            (0D2h),a
+
+                ; Set values for 115200 baud on UART 1
+                ld              a,00h
+                out0            (0C3h),a
+                ld              a,64h
+             	out0            (0D3h),a
+
+                ; Change CPU settings for default speed
+                ld              a,03Fh          ; Set multiplier X0
+                out0            (CMR),a         ; Clock Multiplier register
+                ld              a,80h           ; XTAL/1
+                out0            (CCR),a         ; CPU Control register
+                ld              a,10h           ; MEM =0/WS I/O = 2W/S
+                out0            (DCNTL),a       ; DMA WAIT Control register
+                ret
+
+; Storage section
+
+cbftbl:         defw          0                 ; Addr of CBIOS function table
+stksav:         defw          0                 ; Stack pointer saved at start
+msghello:       defm          'SLOW   18.432 MHz,  0 MEM W/S = 1,  2 IO W/S $'
+
+                END
