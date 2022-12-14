@@ -32,7 +32,7 @@ DISCLAIMER: This code is experimental and alters settings that overclock the Z18
 This returns the CPU back to 18.432 MHz and WAIT states and UART settings back to the way it is after boot up without the need to do a reboot.
 
 Assembled with the Z180 assembler and linker from the Hightech C toolchain for CP/M
-Please install HiTech C to your Steve Cousins Z180 system running CP/M. Download here: http://www.z80.eu/c-compiler.html
+Please install HiTechC 3.09 to your Steve Cousins Z180 system running CP/M. Download here: http://www.z80.eu/c-compiler.html
 
 Using other assemblers may require small changes to the code.
 
