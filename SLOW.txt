@@ -93,7 +93,40 @@ setspeed:       ;Set values for ASCI Time Constant registers
                 out0            (CMR),a         ; Clock Multiplier register
                 ld              a,80h           ; XTAL/1
                 out0            (CCR),a         ; CPU Control register
-                ld              a,10h           ; MEM =0/WS I/O = 2W/S
+
+; ********************* 	SETUP WAIT STATES	****************************
+
+;				DCNTL - DMA / WAIT CONTROL REGISTER
+;				
+;	WAIT STATES  |	MW1	MW0	I/0W1	I/0W0	DMSI1	DMSI0	DIM1	DIM0
+;	----------------------------------------------------------------------------
+;		     |	7	6	5	4	3	2	1	0
+;	----------------------------------------------------------------------------
+;	0	     |	0	0			0	0	0	0
+;	1	     | 	0	1			Setup for CP/M - dont change
+;	2	     |	1	0		
+;	3	     |	1	1		
+;		
+;	0	     |			0	0
+;	2	     |			0	1
+;	3	     |			1	0
+;	4	     |			1	1
+
+; ************************************************************************************
+; Uncomment one of the settings below to change memory and I/O wait states.
+; If you are having stabilty issues or corrupted data change to a slower setting.
+
+;	ORIGINAL SETTING 
+		ld		a,10h 	; 0 memory wait state / 2 I/O wait states. 
+
+;       LONGEST WAIT TIMES FOR SLOW MEMORY AND SLOW I/O
+;		ld		a,0F4h	; 3 memory wait states / 4 I/O wait states.
+
+;	ORIGINAL MEMORY SPEED - SLOW I/O WAIT STATES.
+;		ld		a,03h	; 0 memory wait state / 2 I/O wait states.
+
+; *************************************************************************************
+
                 out0            (DCNTL),a       ; DMA WAIT Control register
                 ret
 
