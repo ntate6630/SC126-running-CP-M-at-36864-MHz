@@ -41,7 +41,7 @@ LONGEST WAIT TIMES FOR SLOW MEMORY AND SLOW I/O - Try this setting if you experi
 ORIGINAL MEMORY SPEED - SLOW I/O - If your Z180 system is running CP/M correctly but you are experiencing errors with slow I/O devices 
 connected to your setup then use this setting to give more WAIT STATE's to external I/O devices. 
 
-Please see the section in the "FAST.ASM" source file titled - "; ******	SETUP WAIT STATES	******" 
+Please see the section in the "FAST.TXT" and "SLOW.TXT source files titled - "; ******	SETUP WAIT STATES	******" 
 for setting details. Only uncomment one of the lines in the source code for wait settings.
 
 
