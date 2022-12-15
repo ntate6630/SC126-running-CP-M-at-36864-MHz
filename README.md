@@ -26,6 +26,22 @@ https://www.youtube.com/watch?v=JDSr2Kb83AI
 
 DISCLAIMER: This code is experimental and alters settings that overclock the Z180 CPU, changes WAIT timings and changes UART settings and I can not guarantee the system will run reliably on every setup.
 
+UPDATE:
+
+Added a selection of settings for changing the number of WAIT STATE's within the code. Uncomment the line thats most suitable for your setup.
+
+The options are:
+
+ORIGINAL SETTING - The default setting as tried and tested on my own hardware. This should work with the majourity of basic Steve Cousins Z180 setups.
+
+LONGEST WAIT TIMES FOR SLOW MEMORY AND SLOW I/O - Try this setting if you experience errors or instability when running the system in the FAST mode.
+
+ORIGINAL MEMORY SPEED - SLOW I/O - If your Z180 system is running CP/M correctly but you are experiencing errors with slow I/O devices 
+connected to your setup then use this setting to give more WAIT STATE's to external I/O devices. 
+
+Please see the section in the "FAST.ASM" source file titled - "; ******	SETUP WAIT STATES	******" 
+for setting details. Only uncomment one of the lines in the source code for wait settings.
+
 
 #NEW SLOW UTILITY
 
