@@ -123,7 +123,7 @@ setspeed:       ;Set values for ASCI Time Constant registers
 ;		ld		a,0F4h	; 3 memory wait states / 4 I/O wait states.
 
 ;	ORIGINAL MEMORY SPEED - SLOW I/O WAIT STATES.
-;		ld		a,03h	; 0 memory wait state / 2 I/O wait states.
+;		ld		a,70h	; 0 memory wait state / 2 I/O wait states.
 
 ; *************************************************************************************
 
