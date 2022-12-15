@@ -26,7 +26,7 @@ https://www.youtube.com/watch?v=JDSr2Kb83AI
 
 DISCLAIMER: This code is experimental and alters settings that overclock the Z180 CPU, changes WAIT timings and changes UART settings and I can not guarantee the system will run reliably on every setup.
 
-UPDATE:
+#UPDATE:
 
 Added a selection of settings for changing the number of WAIT STATE's within the code. Uncomment the line thats most suitable for your setup.
 
