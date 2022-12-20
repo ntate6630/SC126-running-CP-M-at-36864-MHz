@@ -87,7 +87,7 @@ prtstr:         ; Print a string terminated with a dollar
 ;************************************************************************************
 ; Uncomment one of the settings below to change memory and I/O wait states.
 ; If you are having stabilty issues or corrupted data change to a slower setting.
-
+setspeed:
 ;	ORIGINAL SETTING 
 		ld		a,44h 	; 1 memory wait state / 2 I/O wait states. 
 
