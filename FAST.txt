@@ -74,7 +74,7 @@ prtstr:         ; Print a string terminated with a dollar
 ;	----------------------------------------------------------------------------
 ;		     |	7	6	5	4	3	2	1	0
 ;	----------------------------------------------------------------------------
-;	0	     |	0	0			0	1	0	0
+;	0	     |	0	0			0	0	0	0
 ;	1	     | 	0	1			Setup for CP/M - dont change
 ;	2	     |	1	0		
 ;	3	     |	1	1		
@@ -89,13 +89,13 @@ prtstr:         ; Print a string terminated with a dollar
 ; If you are having stabilty issues or corrupted data change to a slower setting.
 setspeed:
 ;	ORIGINAL SETTING 
-		ld		a,44h 	; 1 memory wait state / 2 I/O wait states. 
+		ld		a,40h 	; 1 memory wait state / 2 I/O wait states. 
 
 ;       LONGEST WAIT TIMES FOR SLOW MEMORY AND SLOW I/O
-;		ld		a,0F4h	; 3 memory wait states / 4 I/O wait states.
+;		ld		a,0F0h	; 3 memory wait states / 4 I/O wait states.
 
 ;	ORIGINAL MEMORY SPEED - SLOW I/O wait states.
-;		ld		a,74h	; 1 memory wait state / 4 I/O wait states.
+;		ld		a,70h	; 1 memory wait state / 4 I/O wait states.
 
 
 ;*************************************************************************************
