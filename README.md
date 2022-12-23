@@ -1,5 +1,6 @@
 # SCXXX-running-CPM-at-36864-MHz
-Code to change register settings to double CPU clock speed and alter WAIT states and UART0 and UART1 config under CP/M.
+Code to change register settings to double CPU clock speed and alter WAIT states and UART0 and UART1 config under CP/M. This code will run on 
+all Steve Cousins Z180 computer kits.
 
 # FAST MODE 
 
