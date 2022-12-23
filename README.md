@@ -1,4 +1,4 @@
-# SC126-running-CPM-at-36864-MHz
+# SCXXX-running-CPM-at-36864-MHz
 Code to change register settings to double CPU clock speed and alter WAIT states and UART0 and UART1 config under CP/M.
 
 # FAST MODE 
